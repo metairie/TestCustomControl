@@ -1,0 +1,12 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import org.fxpart.CustomCtrl?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <VBox>
+        <Text id="fancytext" text="Please click on the Stars, it's a Custom Control "/>
+        <CustomCtrl fx:id="mycustom" minWidth="300" minHeight="100" onMouseClicked="#click" styleClass="star-button"/>
+    </VBox>
+
+</GridPane>

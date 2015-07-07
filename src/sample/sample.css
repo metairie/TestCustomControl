@@ -1,0 +1,7 @@
+#fancytext {
+    -fx-font: 14px Tahoma;
+    -fx-fill: linear-gradient(aqua,darkblue);
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+    -fx-effect: dropshadow(one-pass-box, darkgrey, .1, .1, 15, 15);
+}
