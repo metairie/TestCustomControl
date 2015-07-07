@@ -1,4 +1,4 @@
-package org.fxpart;
+package org.fxpart.custom;
 
 import com.sun.javafx.scene.control.skin.LabeledSkinBase;
 

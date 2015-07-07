@@ -3,7 +3,7 @@ package sample;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import org.fxpart.CustomCtrl;
+import org.fxpart.custom.CustomCtrl;
 
 import java.net.URL;
 import java.util.ResourceBundle;
