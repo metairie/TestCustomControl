@@ -7,8 +7,8 @@ import javafx.scene.control.Control;
  * <p>
  * Created by metairie on 07-Jul-15.
  */
-public class AutosuggestControl extends Control {
-    public AutosuggestControl() {
+public class AutosuggestCBControl extends Control {
+    public AutosuggestCBControl() {
     }
 
     private String stylesheet;

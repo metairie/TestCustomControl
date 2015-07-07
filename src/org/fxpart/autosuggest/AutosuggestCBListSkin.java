@@ -6,20 +6,19 @@ import com.sun.javafx.scene.control.skin.BehaviorSkinBase;
 import com.sun.javafx.scene.control.skin.ComboBoxListViewSkin;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.fxpart.combobox.AutosuggestComboBoxList;
 
 import java.util.Collections;
-import java.util.DoubleSummaryStatistics;
 
 /**
  * Created by metairie on 07-Jul-15.
  */
-public class AutosuggestComboBoxListSkin<T> extends BehaviorSkinBase<AutosuggestComboBoxList<T>, BehaviorBase<AutosuggestComboBoxList<T>>> {
+public class AutosuggestCBListSkin<T> extends BehaviorSkinBase<AutosuggestCBList<T>, BehaviorBase<AutosuggestCBList<T>>> {
 
     /**************************************************************************
      * fields
@@ -30,17 +29,19 @@ public class AutosuggestComboBoxListSkin<T> extends BehaviorSkinBase<Autosuggest
     private final VBox vtext;
     private final VBox vcombo;
     private final ComboBox<T> comboBox;
+    private final AutosuggestComboBoxList<T> ascbl;
+
     private final TextField selectedItem;
     private final ProgressBar loadingIndicator;
 
     // data
-    private final AutosuggestComboBoxList<T> control;
+    private final AutosuggestCBList<T> control;
     private final ObservableList<T> items;
 
     /**************************************************************************
      * Constructors
      **************************************************************************/
-    public AutosuggestComboBoxListSkin(final AutosuggestComboBoxList<T> control) {
+    public AutosuggestCBListSkin(final AutosuggestCBList<T> control) {
         super(control, new BehaviorBase<>(control, Collections.<KeyBinding>emptyList()));
         this.control = control;
         items = control.getItems();
@@ -49,6 +50,7 @@ public class AutosuggestComboBoxListSkin<T> extends BehaviorSkinBase<Autosuggest
         vtext = new VBox();
         loadingIndicator = new ProgressBar();
         selectedItem = new TextField("");
+        ascbl = new AutosuggestComboBoxList<>();
         comboBox = new ComboBox<T>(items) {
             @Override
             protected javafx.scene.control.Skin<?> createDefaultSkin() {
@@ -73,7 +75,7 @@ public class AutosuggestComboBoxListSkin<T> extends BehaviorSkinBase<Autosuggest
         vcombo.setPadding(new Insets(1, 1, 1, 1));
         loadingIndicator.setMaxWidth(Double.MAX_VALUE);
         vcombo.getChildren().add(loadingIndicator);
-        vcombo.getChildren().add(comboBox);
+        vcombo.getChildren().add(ascbl);
 
         vtext.setStyle("-fx-background-color: #AAFFBB;");
         vtext.setPadding(new Insets(6, 1, 0, 1));
@@ -85,5 +87,4 @@ public class AutosuggestComboBoxListSkin<T> extends BehaviorSkinBase<Autosuggest
         root.getChildren().add(vcombo);
         getChildren().add(root);
     }
-
 }

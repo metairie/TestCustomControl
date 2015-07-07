@@ -10,7 +10,7 @@ import javafx.util.StringConverter;
 /**
  * Created by metairie on 07-Jul-15.
  */
-public class AutosuggestComboBoxList<T> extends AutosuggestControl {
+public class AutosuggestCBList<T> extends AutosuggestCBControl {
 
     /**************************************************************************
      * Private fields
@@ -28,7 +28,7 @@ public class AutosuggestComboBoxList<T> extends AutosuggestControl {
     /**
      * Creates a new AutosuggestComboBoxList instance with an empty list of choices.
      */
-    public AutosuggestComboBoxList() {
+    public AutosuggestCBList() {
         this(null);
     }
 
@@ -38,7 +38,7 @@ public class AutosuggestComboBoxList<T> extends AutosuggestControl {
      *
      * @param items The items to display within the CheckComboBox.
      */
-    public AutosuggestComboBoxList(final ObservableList<T> items) {
+    public AutosuggestCBList(final ObservableList<T> items) {
         final int initialSize = items == null ? 32 : items.size();
         this.items = items == null ? FXCollections.<T>observableArrayList() : items;
     }
@@ -55,7 +55,7 @@ public class AutosuggestComboBoxList<T> extends AutosuggestControl {
      */
     @Override
     protected Skin<?> createDefaultSkin() {
-        return new AutosuggestComboBoxListSkin<>(this);
+        return new AutosuggestCBListSkin<>(this);
     }
 
     /**
