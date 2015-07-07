@@ -6,6 +6,10 @@ import com.sun.javafx.scene.control.skin.BehaviorSkinBase;
 import com.sun.javafx.scene.control.skin.ComboBoxListViewSkin;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.util.Collections;
 
@@ -19,7 +23,11 @@ public class AutosuggestComboBoxListSkin<T> extends BehaviorSkinBase<Autosuggest
      **************************************************************************/
 
     // visuals
+    private final VBox vroot;
+    private final HBox htexts;
     private final ComboBox<T> comboBox;
+    private final TextField selectedItem;
+    private final ProgressBar loadingIndicator;
 
     // data
     private final AutosuggestComboBoxList<T> control;
@@ -30,10 +38,12 @@ public class AutosuggestComboBoxListSkin<T> extends BehaviorSkinBase<Autosuggest
      **************************************************************************/
     public AutosuggestComboBoxListSkin(final AutosuggestComboBoxList<T> control) {
         super(control, new BehaviorBase<>(control, Collections.<KeyBinding>emptyList()));
-
         this.control = control;
-        this.items = control.getItems();
-
+        items = control.getItems();
+        vroot = new VBox();
+        htexts = new HBox();
+        loadingIndicator = new ProgressBar();
+        selectedItem = new TextField("");
         comboBox = new ComboBox<T>(items) {
             @Override
             protected javafx.scene.control.Skin<?> createDefaultSkin() {
@@ -47,7 +57,16 @@ public class AutosuggestComboBoxListSkin<T> extends BehaviorSkinBase<Autosuggest
             }
         };
         comboBox.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-        getChildren().add(comboBox);
+        comboBox.setEditable(true);
+
+        // build control up
+        htexts.setPrefWidth(300);
+        htexts.getChildren().add(selectedItem);
+        htexts.getChildren().add(comboBox);
+        vroot.setPrefWidth(htexts.getWidth());
+        vroot.getChildren().add(loadingIndicator);
+        vroot.getChildren().add(htexts);
+        getChildren().add(vroot);
     }
 
 }

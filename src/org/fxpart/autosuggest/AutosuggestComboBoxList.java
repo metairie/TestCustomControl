@@ -71,8 +71,7 @@ public class AutosuggestComboBoxList<T> extends AutosuggestControl {
      **************************************************************************/
 
     // --- converter
-    private ObjectProperty<StringConverter<T>> converter =
-            new SimpleObjectProperty<StringConverter<T>>(this, "converter");
+    private ObjectProperty<StringConverter<T>> converter = new SimpleObjectProperty<StringConverter<T>>(this, "converter");
 
     /**
      * A {@link StringConverter} that, given an object of type T, will
