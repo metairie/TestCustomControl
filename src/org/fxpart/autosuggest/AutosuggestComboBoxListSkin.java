@@ -70,13 +70,13 @@ public class AutosuggestComboBoxListSkin<T> extends BehaviorSkinBase<Autosuggest
         root.setPadding(new Insets(1, 1, 1, 1));
 
         vcombo.setStyle("-fx-background-color: #FFFFBB;");
-        vcombo.setPadding(new Insets(5, 5, 5, 5));
+        vcombo.setPadding(new Insets(1, 1, 1, 1));
         loadingIndicator.setMaxWidth(Double.MAX_VALUE);
         vcombo.getChildren().add(loadingIndicator);
         vcombo.getChildren().add(comboBox);
 
         vtext.setStyle("-fx-background-color: #AAFFBB;");
-        vtext.setPadding(new Insets(10, 5, 5, 5));
+        vtext.setPadding(new Insets(6, 1, 0, 1));
         selectedItem.setVisible(true);
         selectedItem.setMaxHeight(Double.MAX_VALUE);
         vtext.getChildren().add(selectedItem);
