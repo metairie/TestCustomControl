@@ -17,7 +17,7 @@
             </VBox>
             <VBox>
                 <Text text="Below a ComboBox control/skin/behavior"/>
-                <AutosuggestCBList fx:id="autosuggest"/>
+                <AutosuggestCBList fx:id="autosuggestCBControl"/>
             </VBox>
         </children>
     </VBox>
