@@ -1,12 +1,25 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
+<?import org.fxpart.autosuggest.AutosuggestComboBoxList?>
 <?import org.fxpart.custom.CustomCtrl?>
+<?import javafx.scene.control.Label?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <VBox>
-        <Text id="fancytext" text="Please click on the Stars, it's a Custom Control "/>
-        <CustomCtrl fx:id="mycustom" minWidth="300" minHeight="100" onMouseClicked="#click" styleClass="star-button"/>
+        <children>
+            <VBox>
+                <Text id="fancytext" text="Please click on the Stars, it's an empty Custom Control "/>
+                <CustomCtrl fx:id="mycustom" minWidth="300" minHeight="100" onMouseClicked="#click"
+                            styleClass="star-button"/>
+            </VBox>
+            <VBox>
+                <Label text=" - "></Label>
+            </VBox>
+            <VBox>
+                <Text text="Below a ComboBox control/skin/behavior"/>
+                <AutosuggestComboBoxList fx:id="autosuggest"/>
+            </VBox>
+        </children>
     </VBox>
-
 </GridPane>
